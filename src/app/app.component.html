@@ -1,0 +1,38 @@
+<h1 i18n>
+  Localization Demo in Angular using i18n
+</h1>
+<h3 i18n="@@myName">
+  Hello, My name is Wang
+</h3>
+<hr />
+
+<form action="#">
+    First name:<br>
+    <input type="text" name="firstname" [(ngModel)]="firstname">
+    <br><br>
+
+    Last name:<br>
+    <input type="text" name="lastname" [(ngModel)]="lastname">
+    <br><br>
+
+    <select class="form-control" [value]="localeId" (change)="onLocaleChange($event.target.value)">
+        <option value="">Select Language</option>
+        <ng-container *ngFor="let language of languageList">
+            <option  value="{{language.code}}">{{language.label}}</option>
+        </ng-container>
+    </select>
+    <br><br>
+</form> 
+
+<div *ngIf="this.Firstname && this.Firstname.length > 0">
+   {{ this.Firstname}} :
+</div>
+<p> {{ firstname }}</p>
+
+<div *ngIf="this.Lastname && this.Lastname.length > 0">
+   {{ this.Lastname}} :
+</div>
+<p>{{ lastname }}</p>
+
+<p>{{ this.WelcomeMessage}}</p>
+
